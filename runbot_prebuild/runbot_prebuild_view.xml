@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-    
+
         <!-- Pre-Builds Branch-->
         <record id="view_prebuild_branch_form" model="ir.ui.view">
             <field name="model">runbot.prebuild.branch</field>
@@ -29,7 +29,7 @@
                 </tree>
             </field>
         </record>
-        
+
         <!-- Pre-Builds -->
         <record id="view_prebuild_form" model="ir.ui.view">
             <field name="model">runbot.prebuild</field>
@@ -110,6 +110,16 @@
                 </xpath>
             </field>
         </record>
+
+    <template id="runbot_prebuild" inherit_id="runbot.repo" optional="enabled" name="Runbot PreBuild">
+        <xpath expr="//t[@t-as='bu']//td//t[3]" position="inside">
+            <t t-if="bu['prebuild_id'].main_branch_id.name or bu['build'].branch_dependency_id.name">
+                <span t-if="bu['prebuild_id'].main_branch_id.name" t-esc="bu['prebuild_id'].main_branch_id.name" t-att-title="bu['subject']"/>
+                <span t-if="bu['build'].branch_dependency_id.name" t-esc="bu['build'].branch_dependency_id.name" t-att-title="bu['subject']"/><br/>
+            </t>
+        </xpath>
+    </template>
+
 
     </data>
 </openerp>
