@@ -334,6 +334,7 @@ class runbot_build_line(osv.osv):
     def _get_url_commit(self, cr, uid, ids, fields, name, args, context=None):
         context = context or {}
         res = {}
+        url = '#'
         for line in self.browse(cr, uid, ids, context=context):
             repo = line.repo_id
             if repo.host_driver == 'github':
