@@ -7,6 +7,8 @@
     'author': 'Vauxoo',
     'depends': ['runbot'],
     'data': [
+        'security/security_groups.xml',
+        'security/ir.model.access.csv',
         'runbot_prebuild_view.xml',
     ],
     'installable': True,
